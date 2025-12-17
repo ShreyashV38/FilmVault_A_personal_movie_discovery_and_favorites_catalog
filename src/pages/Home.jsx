@@ -8,8 +8,10 @@ function Home(){
         {id: 4,title:"Don 4",release_date:"2012"}
     ]
 
-    const handleSearch = ()=>{
-        alert("searching....")
+    const handleSearch = (e)=>{
+        e.preventDefault()
+        alert(searchQuery)
+        setSearchQuery("")
     }
 
     //using state :<
@@ -24,10 +26,18 @@ const [searchQuery,setSearchQuery]= useState("")
                 placeholder="Search for movies.." className="search-input"
                 value={searchQuery}
                 onChange={(e)=>setSearchQuery(e.target.value)}/>
+
                 <button type="submit" className="search-button">Search</button>
+
             </form>
+
             <div className="movies-grid">
-                {movies.map(movie=> <MovieCard movie={movie} key={movie.id}/>)}
+
+                {movies.map((movie) => 
+                movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && (<MovieCard movie={movie} key={movie.id}/>
+                )
+                )}
+
             </div>
         </div>
     )
