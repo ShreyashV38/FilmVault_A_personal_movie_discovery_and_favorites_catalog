@@ -1,6 +1,4 @@
 # Movie Search Engine
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/ShreyashV38/Movie_Search_Engine)
-
 This is a simple front-end application built with React and Vite that allows users to search for movies from a predefined list. The search results are displayed in real-time as the user types into the search bar.
 
 ## Features
