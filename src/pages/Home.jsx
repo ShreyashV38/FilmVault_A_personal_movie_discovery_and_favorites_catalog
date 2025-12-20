@@ -1,5 +1,6 @@
 import MovieCard from "../components/MovieCard"
 import { useState } from "react"
+import "../css/Home.css"
 function Home(){
     const movies=[
         {id: 1,title:"Don 1",release_date:"2012"},
