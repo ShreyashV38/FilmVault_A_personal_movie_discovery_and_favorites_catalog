@@ -1,14 +1,17 @@
 import './App.css'
+import Favorites from './pages/Favorites';
 import Home from './pages/Home';
+import {Routes,Route} from 'react-router-dom';
 import MovieCard from './components/MovieCard';
 
 function App() {
-  const movieNumber=1
   return (
-    <>
-      {/* <MovieCard movie={{title:"Don",release_date:"2014"}}/> */}
-      <Home/>
-    </>
+    <main className='main-content'>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/favorites' element={<Favorites/>}/>
+      </Routes>
+    </main>
   );
 }
 
