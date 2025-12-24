@@ -7,13 +7,31 @@ export const useMovieContext=()=>useContext(MovieContext)
 
 export const MovieProvider=({children})=>{
 
-    const [favorite,setFavorite] = useState([])
+    const [favorites,setFavorites] = useState([])
 
     useEffect(()=>{
         const storedFavs= localStorage.getItem("favorites")
 
-        if(storedFavs) setFavorite(JSON.parse(storedFavs))
-    },[])
+        if(storedFavs) setFavorites(JSON.parse(storedFavs))
+        },[])
+
+    useEffect(()=>{
+        localStorage.setItem('favorites',JSON.stringify(favorites))
+    },[favorites])
+
+
+    const addToFavorites= (movie)=>{
+        setFavorites(prev =>[...prev,movie])
+
+    }
+    const isFavorite= (movie)=>{
+        return favorites.some(movie=> movie.id === movieId)
+    }
+
+
+    const removeFromFavorites =(movieId)=>{
+        setFavorites(prev=>prev.filter(movie=>movie.id!== movieId))
+    }
     return <MovieContext.Provider>
         {children}
     </MovieContext.Provider>
