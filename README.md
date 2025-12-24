@@ -1,55 +1,41 @@
-FilmVault 🎬
+# FilmVault 🎬
 
-FilmVault is a dynamic movie discovery web application built with React and Vite. It allows users to browse popular releases, search for specific titles using real-time API data, and curate a personal list of favorite movies.
+**FilmVault** is a dynamic movie discovery web application built with **React** and **Vite**. It allows users to browse popular releases, search for specific titles using real-time API data, and curate a personal list of favorite movies.
 
 This project was developed as a frontend portfolio initiative to explore modern React patterns, state management, and API integration. It aims to replicate the core browsing experience of platforms like IMDb or Netflix in a lightweight, responsive interface.
 
-🚀 Key Features
+## 🚀 Key Features
 
-🎬 Real-time Movie Search: Fetches movie data dynamically from The Movie Database (TMDB) API.
+* **🎬 Real-time Movie Search:** Fetches movie data dynamically from The Movie Database (TMDB) API.
+* **❤️ Favorites Collection:** Users can bookmark movies to a "Favorites" list, which persists locally using browser `localStorage`.
+* **📱 Responsive Design:** A mobile-first, grid-based UI that adapts seamlessly to different screen sizes.
+* **⚡ Optimized Performance:** Built with Vite for lightning-fast hot reloading and build times.
+* **✨ UI/UX:** Interactive hover states and immediate visual feedback for user actions.
 
-❤️ Favorites Collection: Users can bookmark movies to a "Favorites" list, which persists locally using browser localStorage.
+## 🛠️ Tech Stack
 
-📱 Responsive Design: A mobile-first, grid-based UI that adapts seamlessly to different screen sizes.
+* **Frontend Framework:** React 19
+* **Build Tool:** Vite
+* **Styling:** CSS3 (Modular architecture)
+* **State Management:** React Context API (`MovieContext`)
+* **Routing:** React Router DOM
+* **Data Source:** The Movie Database (TMDB) API
 
-⚡ Optimized Performance: Built with Vite for lightning-fast hot reloading and build times.
+## 🏗️ Project Architecture
 
-UI/UX: Interactive hover states and immediate visual feedback for user actions.
+This project follows a **Single Page Application (SPA)** architecture, prioritizing clarity and component reusability.
 
-🛠️ Tech Stack
+* **State Management:** A global `MovieContext` manages the application state, specifically the "Favorites" list, making it accessible to any component in the tree without prop drilling.
+* **Service Layer:** API calls are abstracted into `services/api.js`, separating data fetching logic from UI components.
+* **Component Structure:**
+    * `App.jsx`: Handles routing logic.
+    * `Home.jsx`: Manages the search input and displays the main movie grid.
+    * `MovieCard.jsx`: Reusable presentation component for individual movie items.
+    * `Favorites.jsx`: Renders the user's stored collection.
 
-Frontend Framework: React 19
+## 📂 Folder Structure
 
-Build Tool: Vite
-
-Styling: CSS3 (Modular architecture)
-
-State Management: React Context API (MovieContext)
-
-Routing: React Router DOM
-
-Data Source: The Movie Database (TMDB) API
-
-🏗️ Project Architecture
-
-This project follows a Single Page Application (SPA) architecture, prioritizing clarity and component reusability.
-
-State Management: A global MovieContext manages the application state, specifically the "Favorites" list, making it accessible to any component in the tree without prop drilling.
-
-Service Layer: API calls are abstracted into services/api.js, separating data fetching logic from UI components.
-
-Component Structure:
-
-App.jsx: Handles routing logic.
-
-Home.jsx: Manages the search input and displays the main movie grid.
-
-MovieCard.jsx: Reusable presentation component for individual movie items.
-
-Favorites.jsx: Renders the user's stored collection.
-
-📂 Folder Structure
-
+```text
 FilmVault/
 ├── public/              # Static assets
 ├── src/
@@ -64,80 +50,95 @@ FilmVault/
 ├── package.json         # Dependencies and scripts
 └── vite.config.js       # Vite configuration
 
+```
+---
 
-💻 Installation & Setup
+## Installation & Setup
 
-To run this project locally, ensure you have Node.js (v16+) installed.
+### Prerequisites
 
-Clone the repository
+* Node.js (v16 or higher)
+* npm
 
-git clone [https://github.com/ShreyashV38/FilmVault.git](https://github.com/ShreyashV38/FilmVault.git)
+### Steps
+
+```bash
+# Clone the repository
+git clone https://github.com/ShreyashV38/FilmVault.git
+
+# Navigate to the project directory
 cd FilmVault
 
-
-Install dependencies
-
+# Install dependencies
 npm install
 
-
-Start the development server
-
+# Start the development server
 npm run dev
+```
 
+The application will be available at:
 
-The app will be available at http://localhost:5173.
+```
+http://localhost:5173
+```
 
-Build for production
+### Production Build
 
+```bash
 npm run build
+```
 
+### API Key Note
 
-Note on API Keys: This project uses a demonstration API key from TMDB. In a production environment, this should be stored in a .env file (e.g., VITE_TMDB_API_KEY) and accessed via import.meta.env to prevent exposing credentials in the client-side code.
+This project currently uses a demonstration TMDB API key. For production usage, store the key in a `.env` file:
 
-⚠️ Limitations
+```env
+VITE_TMDB_API_KEY=your_api_key_here
+```
 
-As a student project, there are currently a few known limitations:
+Access it using `import.meta.env` to avoid exposing credentials.
 
-Client-Side Only: Favorites are stored in localStorage, meaning they won't sync across different devices or browsers.
+---
 
-API Limits: Relying on the free tier of TMDB API may result in rate limiting during heavy usage.
+## Limitations
 
-Pagination: Currently displays only the first page of search results.
+* Client-side only; favorites are stored in `localStorage`
+* No cross-device or account-based synchronization
+* TMDB free-tier API rate limits apply
+* Only the first page of search results is displayed
+* Basic error handling; user-facing messages are minimal
 
-Error Handling: Basic network error logging is implemented, but user-facing error messages could be more robust.
+---
 
-🔮 Future Scope
+## Future Scope / Improvements
 
-There is significant room for extension, making this a great base for further learning:
+* User authentication with Firebase or Auth0
+* Backend integration for persistent favorites storage
+* Detailed movie pages (`/movie/:id`) with cast, trailers, and plot
+* Advanced filtering (genre, year, rating)
+* TypeScript migration for improved maintainability
+* Unit and integration testing using Vitest/Jest and React Testing Library
 
-Authentication: Integrate Firebase or Auth0 to allow users to create accounts and save favorites to a database.
+---
 
-Detailed Views: Create a dynamic /movie/:id route to show plot summaries, casting, and trailers.
+## Contribution Guidelines
 
-Advanced Filtering: Add filters for Genre, Release Year, and Rating.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/YourFeatureName`)
+3. Commit your changes (`git commit -m 'Add YourFeatureName'`)
+4. Push to your branch (`git push origin feature/YourFeatureName`)
+5. Open a Pull Request with a clear description
 
-TypeScript Migration: Refactor the codebase to TypeScript for better type safety and maintainability.
+Keep changes focused, readable, and aligned with the existing structure.
 
-Testing: Implement unit tests with Jest/Vitest and React Testing Library.
+---
 
-🤝 Contribution Guidelines
+## License
 
-Contributions are welcome! If you're also learning React and want to improve this project:
+This project is licensed under the **MIT License**.
 
-Fork the repository.
-
-Create a feature branch (git checkout -b feature/AmazingFeature).
-
-Commit your changes (git commit -m 'Add some AmazingFeature').
-
-Push to the branch (git push origin feature/AmazingFeature).
-
-Open a Pull Request.
-
-📄 License
-
-This project is licensed under the MIT License.
+---
 
 <p align="center">
-<i>Made with 💻 and ☕ by a Computer Science Student.</i>
+<i>Built as a frontend learning project using modern React tooling.</i>
 </p>
