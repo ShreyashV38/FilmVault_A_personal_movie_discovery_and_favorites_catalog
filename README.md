@@ -1,6 +1,6 @@
 # FilmVault 🎬
 
-**FilmVault** is a dynamic movie discovery web application built with **React** and **Vite**. It allows users to browse popular releases, search for specific titles using real-time API data, and curate a personal list of favorite movies.
+**FilmVault** is a dynamic movie discovery web application built with **React** and **Vite**. It allows users to browse popular releases, search for specific titles using real-time API data, and curate a personal list of favorite movies.Try it out{https://film-vault-a-personal-movie-discove.vercel.app/}
 
 This project was developed as a frontend portfolio initiative to explore modern React patterns, state management, and API integration. It aims to replicate the core browsing experience of platforms like IMDb or Netflix in a lightweight, responsive interface.
 
